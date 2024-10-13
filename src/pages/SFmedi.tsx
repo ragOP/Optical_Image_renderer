@@ -7,7 +7,7 @@ import "./styles.scss";
 import { scrollTo } from "../utils";
 import { ToastContainer, toast, cssTransition } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Head_bg from "../assets/crash.jpg";
+import Head_bg from "../assets/card.png";
 import HeaderLogo from "../assets/sawal.png";
 import aa from "../assets/last.png";
 import Headline from "../assets/headline_spandeb1.png";
@@ -359,7 +359,7 @@ export default function SFmedi() {
               <div className="main-des-title-6-7">
             
                 <b>
-                Seniors On Medicare May Qualify For Thousands In Food Allowance This Week
+                Seniors On Medicare May Qualify For Thousands In Food Allowance This Week!
 
                 </b>
               </div>
@@ -403,27 +403,24 @@ export default function SFmedi() {
         </div>
       ) : (
         <div className="checking">
-          <div className="congrats">Congratulations!</div>
-          <div className="top-description-5">
-          Tap Below And Speak To A Licensed Insurance Agent About Medicare Plans you may be eligible for
-          </div>
-          {/* <div className="spots-count">Spots remaining: 4</div> */}
-          <div className="tap-direction">👇 TAP BELOW TO CALL  👇</div>
-          <a href="tel:+18446720874">
-            <div className="call-btn" onClick={handleCall}>
-            CALL (844) 672-0874 | TTY 711
-            </div>
-          </a>
-          {/* <div className="sub-title">We Have Reserved Your Spot</div> */}
-          <div className="sub-description">
-          {/* Your spot is reserved so call within the next 5 minutes. */}
-          </div>
-          {/* <div className="timer">
-            <div className="timer-cell">{min}</div>
-            <div className="timer-cell">:</div>
-            <div className="timer-cell">{second}</div>
-          </div> */}
+        <div className="congrats">Congratulations, You Qualify!</div>
+        <div className="top-description-5">
+          Make A <b>Quick Call</b> To Claim Your Food Allowance!
         </div>
+        <div className="spots-count">Spots remaining: 4</div>
+        <div className="tap-direction">👇 TAP BELOW TO CALL 👇</div>
+        <a href="tel:+18446491108">             <div className="call-btn" onClick={handleCall}>             CALL (844) 649-1108             </div>           </a>
+        <div className="sub-title">We Have Reserved Your Spot</div>
+        <div className="sub-description">
+          Due to high call volume, your official agent is waiting for only{" "}
+          <b>3 minutes</b>, then your spot will not be reserved.
+        </div>
+        <div className="timer">
+          <div className="timer-cell">{min}</div>
+          <div className="timer-cell">:</div>
+          <div className="timer-cell">{second}</div>
+        </div>
+      </div>
       )}
       <div className="footer2">
       <p>We represent Medicare Advantage HMO, PPO and PFFS organizations and stand-alone PDP prescription drug plans that are contracted with Medicare. Enrollment depends on the plan’s contract renewal."
