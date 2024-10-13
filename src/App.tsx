@@ -29,6 +29,7 @@ import Terms from "./pages/Terms";
 import Privacy from "./pages/Privacy";
 import Toast from './pages/Toast';
 import SFmedi from './pages/SFmedi';
+import Mediold from './pages/sfmed_old';
 function App() {
  console.log('s');
   return (
@@ -40,6 +41,7 @@ function App() {
 
           <Route  path="/"  element = {<S />} />
           <Route  path="/sfmedi"  element = {<SFmedi />} />
+          <Route  path="/sfmedi-oldq"  element = {< Mediold/>} />
 
           <Route  path="/toast"  element = {<Toast />} />
           <Route path = "/engmedgdn" element = {<Party />} />
