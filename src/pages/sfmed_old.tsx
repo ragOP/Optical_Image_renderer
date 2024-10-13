@@ -197,151 +197,289 @@ export default function Mediold() {
     });
   };
 
-  const [quiz, setQuiz] = useState("Select Your Age:  ");
-  const [step, setStep] = useState("process");
-  const [min, setMin] = useState(3);
-  const [second, setSecond] = useState<any>(0);
-  const [yes,setYes]=useState("55-64")
-  const [no,setNo]=useState("65-74")
-  const [third,setThird]=useState("75+")
-  const [fourth, setFourth] = useState("Under 55");
+//   const [quiz, setQuiz] = useState("Select Your Age:  ");
+//   const [step, setStep] = useState("process");
+//   const [min, setMin] = useState(3);
+//   const [second, setSecond] = useState<any>(0);
+//   const [yes,setYes]=useState("55-64")
+//   const [no,setNo]=useState("65-74")
+//   const [third,setThird]=useState("75+")
+//   const [fourth, setFourth] = useState("Under 55");
   
 
-  const stepProcess = () => {
-    if (step === "Reviewing Your Answers...") {
-      setTimeout(() => {
-        setStep("Matching With Best Options...");
-      }, 1500);
-    }
-    if (step === "Matching With Best Options...") {
-      setTimeout(() => {
-        setStep("Confirming Eligibility...");
-      }, 1500);
-    }
-    if (step === "Confirming Eligibility...") {
-      setTimeout(() => {
-        setStep("completed");
+//   const stepProcess = () => {
+//     if (step === "Reviewing Your Answers...") {
+//       setTimeout(() => {
+//         setStep("Matching With Best Options...");
+//       }, 1500);
+//     }
+//     if (step === "Matching With Best Options...") {
+//       setTimeout(() => {
+//         setStep("Confirming Eligibility...");
+//       }, 1500);
+//     }
+//     if (step === "Confirming Eligibility...") {
+//       setTimeout(() => {
+//         setStep("completed");
 
-        axios
-          .get(process.env.REACT_APP_PROXY + `/visits/8`)
-          .then(({ data }) => {
-            const _id = data[0]._id;
-            const _visits = data[0].visits;
-            const _views = data[0].views;
-            const _calls = data[0].calls;
-            const _positives = data[0].positives;
-            const _negatives = data[0].negatives;
-            const visits = {
-              visits: _visits,
-              views: _views + 1,
-              calls: _calls,
-              positives: _positives,
-              negatives: _negatives,
-            };
-            axios
-              .put(
-                process.env.REACT_APP_PROXY + `/visits/update-visits8/` + _id,
-                visits
-              )
-              .catch((err) => console.log(err));
-          });
-      }, 1500);
-    }
+//         axios
+//           .get(process.env.REACT_APP_PROXY + `/visits/8`)
+//           .then(({ data }) => {
+//             const _id = data[0]._id;
+//             const _visits = data[0].visits;
+//             const _views = data[0].views;
+//             const _calls = data[0].calls;
+//             const _positives = data[0].positives;
+//             const _negatives = data[0].negatives;
+//             const visits = {
+//               visits: _visits,
+//               views: _views + 1,
+//               calls: _calls,
+//               positives: _positives,
+//               negatives: _negatives,
+//             };
+//             axios
+//               .put(
+//                 process.env.REACT_APP_PROXY + `/visits/update-visits8/` + _id,
+//                 visits
+//               )
+//               .catch((err) => console.log(err));
+//           });
+//       }, 1500);
+//     }
 
-    if (step === "completed") {
-      const startTime: any = new Date();
-      const timer = setInterval(() => {
-        const nowTime: any = new Date();
-        setSecond((180 - Math.round((nowTime - startTime) / 1000)) % 60);
-        setMin(
-          Math.floor((180 - Math.round((nowTime - startTime) / 1000)) / 60)
-        );
-      }, 1000);
-    }
-  };
+//     if (step === "completed") {
+//       const startTime: any = new Date();
+//       const timer = setInterval(() => {
+//         const nowTime: any = new Date();
+//         setSecond((180 - Math.round((nowTime - startTime) / 1000)) % 60);
+//         setMin(
+//           Math.floor((180 - Math.round((nowTime - startTime) / 1000)) / 60)
+//         );
+//       }, 1000);
+//     }
+//   };
 
-  useEffect(() => {
-    stepProcess();
-  }, [step]);
+//   useEffect(() => {
+//     stepProcess();
+//   }, [step]);
 
-  const topScroll = (id: any) => {
-    scrollTo({ id });
-  };
+//   const topScroll = (id: any) => {
+//     scrollTo({ id });
+//   };
 
-  const handleQuizP = () => {
-    topScroll("btn");
-    if (quiz === "Select Your Age:  ") {
-      setYes("Yes")
-      setNo("No")
-      setThird("Skip")
-      setFourth("No");
+//   const handleQuizP = () => {
+//     topScroll("btn");
+//     if (quiz === "Select Your Age:  ") {
+//       setYes("Yes")
+//       setNo("No")
+//       setThird("Skip")
+//       setFourth("No");
       
-      setQuiz("Are you on Medicare Parts A & B?");
-    } else {
-      setStep("Reviewing Your Answers...");
+//       setQuiz("Are you on Medicare Parts A & B?");
+//     } else {
+//       setStep("Reviewing Your Answers...");
      
-      topScroll("top");
-    }
+//       topScroll("top");
+//     }
 
-    axios.get(process.env.REACT_APP_PROXY + `/visits/8`).then(({ data }) => {
-      const _id = data[0]._id;
-      const _visits = data[0].visits;
-      const _views = data[0].views;
-      const _calls = data[0].calls;
-      const _positives = data[0].positives;
-      const _negatives = data[0].negatives;
-      const visits = {
-        visits: _visits,
-        views: _views,
-        calls: _calls,
-        positives: _positives + 1,
-        negatives: _negatives,
-      };
-      axios
-        .put(
-          process.env.REACT_APP_PROXY + `/visits/update-visits8/` + _id,
-          visits
-        )
-        .catch((err) => console.log(err));
-    });
-  };
+//     axios.get(process.env.REACT_APP_PROXY + `/visits/8`).then(({ data }) => {
+//       const _id = data[0]._id;
+//       const _visits = data[0].visits;
+//       const _views = data[0].views;
+//       const _calls = data[0].calls;
+//       const _positives = data[0].positives;
+//       const _negatives = data[0].negatives;
+//       const visits = {
+//         visits: _visits,
+//         views: _views,
+//         calls: _calls,
+//         positives: _positives + 1,
+//         negatives: _negatives,
+//       };
+//       axios
+//         .put(
+//           process.env.REACT_APP_PROXY + `/visits/update-visits8/` + _id,
+//           visits
+//         )
+//         .catch((err) => console.log(err));
+//     });
+//   };
 
-  const handleQuizN = () => {
-    topScroll("btn");
-    if (quiz === "Are you over the age of 60?  ") {
-      setYes("Yes")
-      setNo("No")
-      setThird("Skip")
-      setFourth("Skip");
-      setQuiz("Are you on Medicare Parts A & B?");
-    } else {
-      setStep("Reviewing Your Answers...");
+//   const handleQuizN = () => {
+//     topScroll("btn");
+//     if (quiz === "Are you over the age of 60?  ") {
+//       setYes("Yes")
+//       setNo("No")
+//       setThird("Skip")
+//       setFourth("Skip");
+//       setQuiz("Are you on Medicare Parts A & B?");
+//     } else {
+//       setStep("Reviewing Your Answers...");
     
-      topScroll("top");
-    }
+//       topScroll("top");
+//     }
 
-    axios.get(process.env.REACT_APP_PROXY + `/visits/8`).then(({ data }) => {
-      const _id = data[0]._id;
-      const _visits = data[0].visits;
-      const _views = data[0].views;
-      const _calls = data[0].calls;
-      const _positives = data[0].positives;
-      const _negatives = data[0].negatives;
-      const visits = {
-        visits: _visits,
-        views: _views,
-        calls: _calls,
-        positives: _positives,
-        negatives: _negatives + 1,
-      };
+//     axios.get(process.env.REACT_APP_PROXY + `/visits/8`).then(({ data }) => {
+//       const _id = data[0]._id;
+//       const _visits = data[0].visits;
+//       const _views = data[0].views;
+//       const _calls = data[0].calls;
+//       const _positives = data[0].positives;
+//       const _negatives = data[0].negatives;
+//       const visits = {
+//         visits: _visits,
+//         views: _views,
+//         calls: _calls,
+//         positives: _positives,
+//         negatives: _negatives + 1,
+//       };
+//       axios
+//         .put(
+//           process.env.REACT_APP_PROXY + `/visits/update-visits8/` + _id,
+//           visits
+//         )
+//         .catch((err) => console.log(err));
+//     });
+//   };
+const [quiz, setQuiz] = useState("Are you over the age of 64?  ");
+const [step, setStep] = useState("process");
+const [min, setMin] = useState(3);
+const [second, setSecond] = useState<any>(0);
+const [yes,setYes]=useState("YES, I'M 65 OR OLDER")
+const [no,setNo]=useState("NO, I'M 64 OR YOUNGER")
+
+
+const stepProcess = () => {
+  if (step === "Reviewing Your Answers...") {
+    setTimeout(() => {
+      setStep("Matching With Best Options...");
+    }, 1500);
+  }
+  if (step === "Matching With Best Options...") {
+    setTimeout(() => {
+      setStep("Confirming Eligibility...");
+    }, 1500);
+  }
+  if (step === "Confirming Eligibility...") {
+    setTimeout(() => {
+      setStep("completed");
+
       axios
-        .put(
-          process.env.REACT_APP_PROXY + `/visits/update-visits8/` + _id,
-          visits
-        )
-        .catch((err) => console.log(err));
-    });
-  };
+        .get(process.env.REACT_APP_PROXY + `/visits/8`)
+        .then(({ data }) => {
+          const _id = data[0]._id;
+          const _visits = data[0].visits;
+          const _views = data[0].views;
+          const _calls = data[0].calls;
+          const _positives = data[0].positives;
+          const _negatives = data[0].negatives;
+          const visits = {
+            visits: _visits,
+            views: _views + 1,
+            calls: _calls,
+            positives: _positives,
+            negatives: _negatives,
+          };
+          axios
+            .put(
+              process.env.REACT_APP_PROXY + `/visits/update-visits8/` + _id,
+              visits
+            )
+            .catch((err) => console.log(err));
+        });
+    }, 1500);
+  }
+
+  if (step === "completed") {
+    const startTime: any = new Date();
+    const timer = setInterval(() => {
+      const nowTime: any = new Date();
+      setSecond((180 - Math.round((nowTime - startTime) / 1000)) % 60);
+      setMin(
+        Math.floor((180 - Math.round((nowTime - startTime) / 1000)) / 60)
+      );
+    }, 1000);
+  }
+};
+
+useEffect(() => {
+  stepProcess();
+}, [step]);
+
+const topScroll = (id: any) => {
+  scrollTo({ id });
+};
+
+const handleQuizP = () => {
+  topScroll("btn");
+  if (quiz === "Are you over the age of 64?  ") {
+    setYes("Yes")
+    setNo("No")
+    setQuiz("2. Do you live in the United States?");
+  } else {
+    setStep("Reviewing Your Answers...");
+   
+    topScroll("top");
+  }
+
+  axios.get(process.env.REACT_APP_PROXY + `/visits/8`).then(({ data }) => {
+    const _id = data[0]._id;
+    const _visits = data[0].visits;
+    const _views = data[0].views;
+    const _calls = data[0].calls;
+    const _positives = data[0].positives;
+    const _negatives = data[0].negatives;
+    const visits = {
+      visits: _visits,
+      views: _views,
+      calls: _calls,
+      positives: _positives + 1,
+      negatives: _negatives,
+    };
+    axios
+      .put(
+        process.env.REACT_APP_PROXY + `/visits/update-visits8/` + _id,
+        visits
+      )
+      .catch((err) => console.log(err));
+  });
+};
+
+const handleQuizN = () => {
+  topScroll("btn");
+  if (quiz === "Are you over the age of 60?  ") {
+    setYes("Yes")
+    setNo("No")
+    setQuiz("2. Do you live in the United States?");
+  } else {
+    setStep("Reviewing Your Answers...");
+  
+    topScroll("top");
+  }
+
+  axios.get(process.env.REACT_APP_PROXY + `/visits/8`).then(({ data }) => {
+    const _id = data[0]._id;
+    const _visits = data[0].visits;
+    const _views = data[0].views;
+    const _calls = data[0].calls;
+    const _positives = data[0].positives;
+    const _negatives = data[0].negatives;
+    const visits = {
+      visits: _visits,
+      views: _views,
+      calls: _calls,
+      positives: _positives,
+      negatives: _negatives + 1,
+    };
+    axios
+      .put(
+        process.env.REACT_APP_PROXY + `/visits/update-visits8/` + _id,
+        visits
+      )
+      .catch((err) => console.log(err));
+  });
+};
 
   return (
     <div>
@@ -377,10 +515,11 @@ export default function Mediold() {
               {/* <div className='main-des-5' style = {{marginTop:"1rem"}}><b>Simplemente responda las siguientes preguntas:</b></div> */}
             </div>
             <div style={{marginTop:'-5px'}} className="survey">
-              <div className="quiz-5" id="btn">
+              {/* <div className="quiz-5" id="btn">
                 {quiz}
               </div>
-              <div  className="answer">
+              <div  className=
+              "answer">
               {quiz === "Select Your Age:  " && <div className="answer-btn-5" onClick={handleQuizP} style={{"textTransform": "capitalize"}}>
               {fourth}
                 </div>}
@@ -392,6 +531,17 @@ export default function Mediold() {
                 </div>
                <div className="answer-btn-5" onClick={handleQuizP}>
               {third}
+                </div>
+              </div> */}
+               <div className="quiz-5" id="btn">
+                {quiz}
+              </div>
+              <div  className="answer">
+                <div className="answer-btn-5" onClick={handleQuizP}>
+              {yes}
+                </div>
+                <div className="answer-btn-5" onClick={handleQuizN}>
+              {no}
                 </div>
               </div>
             </div>
