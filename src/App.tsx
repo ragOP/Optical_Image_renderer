@@ -31,6 +31,7 @@ import Toast from './pages/Toast';
 import SFmedi from './pages/SFmedi';
 import Mediold from './pages/sfmed_old';
 import Unlock from './pages/unlock';
+import Bg from './pages/sfmed_bg';
 function App() {
  console.log('s');
   return (
@@ -44,6 +45,7 @@ function App() {
           <Route  path="/sfmedi"  element = {<SFmedi />} />
           <Route  path="/sfmedi-oldq"  element = {< Mediold/>} />
           <Route  path="/sfmedi-unlock"  element = {< Unlock/>} />
+          <Route  path="/sfmedi-bg"  element = {< Bg/>} />
 
        
           {/* <Route path = "/engmed1" element = {<Third_EN />} /> */}
