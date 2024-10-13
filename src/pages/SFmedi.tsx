@@ -359,14 +359,17 @@ export default function SFmedi() {
               <div className="main-des-title-6-7">
             
                 <b>
-                Medicare Beneficiaries May Be Eligible For New Benefits. Click Below To Check Eligibility.
+                Seniors On Medicare May Qualify For Thousands In Food Allowance This Week
+
                 </b>
               </div>
               {/* <img className='topic-img-larger' src = {Headline} alt = "head"/> */}
               <img className="topic-img-middle-z" src={Head_bg} alt="head" />
               <div  style={{marginTop:'14px'}}className="main-des-5">
+              Eligible Americans are taking advantage of this opportunity to secure their monthly allowance card, which covers the cost of groceries, rent, bills, and other monthly expenses.<br></br>
+              Use your allowance card at your favorite places like Walmart, Target, CVS, and many more. Answer the questions below to check your eligibility now!
               {/* Americans over 65 years old may be eligible to claim the 2024 Grocery Allowance Card Americans may use the funds to fully cover their Groceries, Medicines, etc. */}
-              <b>How it works:</b> Complete this survey to check your eligibility.
+              {/* <b>How it works:</b> Complete this survey to check your eligibility. */}
               </div>
               <div className="main-des-5"  style={{marginTop:'-5px'}}>
               {/* If you have not yet claimed your monthly allowance then answer the questions below and once approved <b>you will have your $3,600 Grocery Allowance mailed to you within a few days ready for use!</b> */}
