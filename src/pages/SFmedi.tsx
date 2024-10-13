@@ -403,7 +403,7 @@ export default function SFmedi() {
         </div>
       ) : (
         <div className="checking">
-        <div className="congrats">Congratulations, You Qualify!</div>
+        <div className="congrats">Congratulations, You Pre-Qualify!</div>
         <div className="top-description-5">
           Make A <b>Quick Call</b> To Claim Your Food Allowance!
         </div>
