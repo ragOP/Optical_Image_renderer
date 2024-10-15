@@ -191,11 +191,7 @@ export default function Fifth_SP() {
           </div>
           {/* <div className="spots-count">Spots remaining: 4</div> */}
           <div className="tap-direction">👇 TAP BELOW TO CALL  👇</div>
-          <a href="tel:+18446720874">
-            <div className="call-btn" onClick={handleCall}>
-            CALL (844) 672-0874 | TTY 711
-            </div>
-          </a>
+          <a href="tel:+13236897861">             <div className="call-btn" onClick={handleCall}>             CALL (323) 689-7861           </div>           </a>
           {/* <div className="sub-title">We Have Reserved Your Spot</div> */}
           <div className="sub-description">
           {/* Your spot is reserved so call within the next 5 minutes. */}
